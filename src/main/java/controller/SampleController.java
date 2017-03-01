@@ -14,4 +14,9 @@ public class SampleController {
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Greeting(name);
 	}
+	
+	@RequestMapping("/greeting1")
+	public String greeting1() {
+		return "aa";
+	}
 }

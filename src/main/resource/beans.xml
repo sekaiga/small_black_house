@@ -12,9 +12,14 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="src.main.java"/>
+    
+    <bean class="bean.Greeting"/>
 
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven>
+	<mvc:message-converters>  
+        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>  
+    </mvc:message-converters> 
+    </mvc:annotation-driven>
     <!-- ... -->
 
 </beans>
