@@ -1,10 +1,10 @@
-package main.java.controller;
+package controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import main.java.bean.Greeting;
+import bean.Greeting;
 
 @RestController
 @RequestMapping("/sample")
