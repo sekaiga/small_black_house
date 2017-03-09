@@ -19,5 +19,37 @@ public class CollectionController {
 	public int collectWood(){
 		return controllerService.collectWood();
 	}
+	@RequestMapping("/iron")
+	public int collectIron(){
+		return controllerService.collectIron();
+	}
+	@RequestMapping("/wool")
+	public int collectWool(){
+		return controllerService.collectWool();
+	}
+	@RequestMapping("/stone")
+	public int collectStone(){
+		return controllerService.collectStone();
+	}
+	@RequestMapping("/human")
+	public int collectHuman(){
+		return controllerService.collectHuman();
+	}
+	@RequestMapping("/meat")
+	public int collectMeat(){
+		return controllerService.collectMeat();
+	}
+	@RequestMapping("/teeth")
+	public int collectTeeth(){
+		return controllerService.collectTeeth();
+	}
+	@RequestMapping("/scales")
+	public int collectScales(){
+		return controllerService.collectScales();
+	}
+	@RequestMapping("/bait")
+	public int collectBait(){
+		return controllerService.collectBait();
+	}
 	
 }
