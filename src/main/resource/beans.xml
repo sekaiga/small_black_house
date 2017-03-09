@@ -13,7 +13,8 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     
-    <bean class="bean.Greeting"/>
+    <bean class="bean.Maker"/>
+    <bean class="bean.BasicResource"/>
 
 	<mvc:annotation-driven>
 	<mvc:message-converters>  
