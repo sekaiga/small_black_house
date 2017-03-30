@@ -14,7 +14,7 @@
 
     
     <bean class="bean.Maker"/>
-    <bean class="bean.BasicResource"/>
+    <bean class="bean.BasicResource" />
 
 	<mvc:annotation-driven>
 	<mvc:message-converters>  

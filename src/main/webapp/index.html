@@ -49,147 +49,105 @@
 
 <body id="body" ng-app="myApp" ng-controller="siteCtrl">
 
-	
-	<!-- <h1>{{names}}</h1>
-	<button ng-click='aa()'>aa</button>
-	<button ng-click='bb()'>bb</button>
+	<div ng-controller="HomeController">
 
-	<h1 ng-bind="names">123</h1>
-	<input type="text" ng-model="names">	
-	<input type="text" ng-model="names">	 -->
-	
+		<div id="left">
 
-	<div id="left">
+			<table border="1" width='200px'>
+				<tr>
+					<td><button ng-click='woodAdd()'>Collect Wood</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='iron()'>Collect Iron</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='wool()'>Collect Wool</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='stone()'>Collect Stone</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='human()'>Collect Human</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='meat()'>Collect Meat</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='teeth()'>Collect Teeth</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='scales()'>Collect Scales</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='bait()'>Collect Bait</button></td>
+				</tr>
 
-		<table border="1" width='200px'>
-			<tr>
-				<td><button ng-click='wood()'>Collect Wood</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='iron()'>Collect Iron</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='wool()'>Collect Wool</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='stone()'>Collect Stone</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='human()'>Collect Human</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='meat()'>Collect Meat</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='teeth()'>Collect Teeth</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='scales()'>Collect Scales</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click='bait()'>Collect Bait</button></td>
-			</tr>
+			</table>
+		</div>
 
-		</table>
+
+		<div id="middle">
+			<img src="">
+		</div>
+
+		<div id="right">
+
+			<table border="0" width='100px'>
+
+				<tr>
+					<td>Wood:
+						<div ng-bind="WoodValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Iron:
+						<div ng-bind="IronValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Wool:
+						<div ng-bind="WoolValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Stone:
+						<div ng-bind="StoneValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Human:
+						<div ng-bind="HumanValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Meat:
+						<div ng-bind="MeatValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Teeth:
+						<div ng-bind="TeethValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Scales:
+						<div ng-bind="ScalesValue" style="float: right"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Bait:
+						<div ng-bind="BaitValue" style="float: right"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
 
 	</div>
 
-	<div id="middle">
-		<img src="">
-	</div>
-
-	<div id="right" >
-
-		<table border="0" width='100px'>
-
-			<tr>
-				<td>Wood: <div ng-bind="WoodValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Iron: <div ng-bind="IronValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Wool: <div ng-bind="WoolValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Stone: <div ng-bind="StoneValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Human: <div ng-bind="HumanValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Meat: <div ng-bind="MeatValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Teeth: <div ng-bind="TeethValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Scales: <div ng-bind="ScalesValue" style="float:right"></div></td>
-			</tr>
-			<tr>
-				<td>Bait: <div ng-bind="BaitValue" style="float:right"></div></td>
-			</tr>
-		</table>
-	</div>
 
 
-
-
-	<script>
-		var app = angular.module('myApp', []);
-		app.controller('siteCtrl', function($scope, $http) {
-
-			$scope.wood = function() {
-				$http.get("service/collect/wood").then(function(response) {
-					$scope.WoodValue = response.data;
-				});
-			}
-			$scope.iron = function() {
-				$http.get("service/collect/iron").then(function(response) {
-					$scope.IronValue = response.data;
-				});
-			}
-			$scope.wool = function() {
-				$http.get("service/collect/wool").then(function(response) {
-					$scope.WoolValue = response.data;
-				});
-			}
-			$scope.stone = function() {
-				$http.get("service/collect/stone").then(function(response) {
-					$scope.StoneValue = response.data;
-				});
-			}
-			$scope.human = function() {
-				$http.get("service/collect/human").then(function(response) {
-					$scope.HumanValue = response.data;
-				});
-			}
-			$scope.meat = function() {
-				$http.get("service/collect/meat").then(function(response) {
-					$scope.MeatValue = response.data;
-				});
-			}
-			$scope.teeth = function() {
-				$http.get("service/collect/teeth").then(function(response) {
-					$scope.TeethValue = response.data;
-				});
-			}
-			$scope.scales = function() {
-				$http.get("service/collect/scales").then(function(response) {
-					$scope.ScalesValue = response.data;
-				});
-			}
-			$scope.bait = function() {
-				$http.get("service/collect/bait").then(function(response) {
-					$scope.BaitValue = response.data;
-				});
-			}
-			$scope.aa = function() {
-				$scope.names = 123;
-			}
-		});
-	</script>
 </body>
+	<script type="text/javascript" src="js/main.js"></script>
 
 
 </html>
