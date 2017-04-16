@@ -1,153 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-#left {
-	line-height: 60px;
-	background-color: #eeeeee;
-	height: 100%;
-	width: 30%;
-	float: left;
-	left: 0px;
-	position: absolute;
-}
-
-#middle {
-	line-height: 60px;
-	background-color: #eeeeee;
-	height: 100%;
-	width: 40%;
-	float: left;
-	left: 30%;
-	position: absolute;
-}
-
-#right {
-	line-height: 60px;
-	background-color: #eeeeee;
-	height: 100%;
-	width: 30%;
-	float: right;
-	left: 70%;
-	position: absolute;
-	box-sizing: border-box;
-	border: 2px solid #000000;
-}
-
-#body {
-	margin: 0px;
-}
-</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script
 	src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js">
 	
 </script>
-
+<script
+	src = "https://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js">
+</script>
 </head>
+
+<style>
+#middle_top {
+	width: 40%;
+	float: left;
+	left: 30%;
+	top:20px;
+	position: absolute;
+}
+
+
+#right {
+	line-height: 20px;
+	width: 10%;
+	top: 40px;
+	float: right;
+	left: 70%;
+	position: absolute;
+	border: 1px solid;
+	float: right;
+}
+</style>
 
 <body id="body" ng-app="myApp" ng-controller="siteCtrl">
 
-	<div ng-controller="HomeController">
 
-		<div id="left">
+	<div ng-view></div>
 
-			<table border="1" width='200px'>
-				<tr>
-					<td><button ng-click='woodAdd()'>Collect Wood</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='iron()'>Collect Iron</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='wool()'>Collect Wool</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='stone()'>Collect Stone</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='human()'>Collect Human</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='meat()'>Collect Meat</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='teeth()'>Collect Teeth</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='scales()'>Collect Scales</button></td>
-				</tr>
-				<tr>
-					<td><button ng-click='bait()'>Collect Bait</button></td>
-				</tr>
-
-			</table>
+	<div id="middle_top">
+		<a href="#/" style="float:left;" ng-bind="houseStatus.houseSize"></a>
+		<div style="float:left;" ng-show="houseStatus.groundSize">
+		<div style="float:left;">|</div>
+		<a href="#/ground" style="float:left;" ng-bind="houseStatus.groundSize"></a>
 		</div>
+	</div>
 
+	<div id="right">
 
-		<div id="middle">
-			<img src="">
-		</div>
-
-		<div id="right">
-
-			<table border="0" width='100px'>
-
-				<tr>
-					<td>Wood:
-						<div ng-bind="WoodValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Iron:
-						<div ng-bind="IronValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Wool:
-						<div ng-bind="WoolValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Stone:
-						<div ng-bind="StoneValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Human:
-						<div ng-bind="HumanValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Meat:
-						<div ng-bind="MeatValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Teeth:
-						<div ng-bind="TeethValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Scales:
-						<div ng-bind="ScalesValue" style="float: right"></div>
-					</td>
-				</tr>
-				<tr>
-					<td>Bait:
-						<div ng-bind="BaitValue" style="float: right"></div>
-					</td>
-				</tr>
-			</table>
+		<span
+			style="position: relative;  top: -10px ; left: 5px; z-index: 99; background: white">储藏室
+		</span> <br>
+		<div style="position: relative; ">
+			<span>木头:
+				<div ng-bind="resource.WoodValue" style="float: right"></div>
+			</span> <br> <span>毛皮:
+				<div ng-bind="WoolValue" style="float: right"></div>
+			</span> <br> <span>Iron:
+				<div ng-bind="IronValue" style="float: right"></div>
+			</span> <br> <span>Stone:
+				<div ng-bind="StoneValue" style="float: right"></div>
+			</span> <br> <span>Wood:
+				<div ng-bind="WoodValue" style="float: right"></div>
+			</span> <br>
 		</div>
 
 	</div>
 
 
 
+
 </body>
-	<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 
 </html>
