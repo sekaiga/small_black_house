@@ -43,7 +43,10 @@ app.controller('groundController', function($scope) {
 			$scope.resource.WoodValue = 0;
 		}
 		$scope.resource.WoodValue += 10;
-		document.cookie = "WoodValue=" + $scope.resource.WoodValue;
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate()+365);
+		document.cookie = "WoodValue=" + $scope.resource.WoodValue+
+		";expires="+exdate.toGMTString();
 	}
 })
 app.controller('houseController', function($scope) {
