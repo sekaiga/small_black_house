@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js">
+	
+</script>
+<link href="css/house.css" rel="stylesheet" type="text/css">
+</head>
+
+<body ng-controller="houseController">
+
+	<div id="middle">
+	<table width='200px'>
+				<tr>
+					<td><input type="button" value="添加木头" ng-click="fire()"></td>
+				</tr>
+				<tr ng-show="resource.WoodValue>40">
+					<td><span>建造/制作</span></td>
+				</tr>
+				<tr ng-show="resource.WoodValue>40">
+					<td><button ng-click='buildHouse'>木屋</button></td>
+				</tr>
+		
+
+			</table>
+	
+		
+		<div ></div>	
+		
+		<input type="button" value="木屋">
+		<table>
+			<tr>
+				<td ><button
+						>Build House</button></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

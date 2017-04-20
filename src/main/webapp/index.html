@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="js/angular.min.js">
+	
+</script>
+<script
+	src = "https://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js">
+</script>
+</head>
+
+<style>
+#middle_top {
+	width: 40%;
+	float: left;
+	left: 30%;
+	top:20px;
+	position: absolute;
+}
+
+
+#right {
+	line-height: 20px;
+	width: 10%;
+	top: 40px;
+	float: right;
+	left: 70%;
+	position: absolute;
+	border: 1px solid;
+	float: right;
+}
+</style>
+
+<body id="body" ng-app="myApp" ng-controller="siteCtrl">
+
+
+	<div ng-view></div>
+
+	<div id="middle_top">
+		<a href="#/" style="float:left;" ng-bind="houseStatus.houseSize"></a>
+		<div style="float:left;" ng-show="houseStatus.groundSize">
+		<div style="float:left;">|</div>
+		<a href="#/ground" style="float:left;" ng-bind="houseStatus.groundSize"></a>
+		</div>
+	</div>
+
+	<div id="right">
+
+		<span
+			style="position: relative;  top: -10px ; left: 5px; z-index: 99; background: white">储藏室
+		</span> <br>
+		<div style="position: relative; ">
+			<span>木头:
+				<div ng-bind="resource.WoodValue" style="float: right"></div>
+			</span> <br> <span>毛皮:
+				<div ng-bind="WoolValue" style="float: right"></div>
+			</span> <br> <span>Iron:
+				<div ng-bind="IronValue" style="float: right"></div>
+			</span> <br> <span>Stone:
+				<div ng-bind="StoneValue" style="float: right"></div>
+			</span> <br> <span>Wood:
+				<div ng-bind="WoodValue" style="float: right"></div>
+			</span> <br>
+		</div>
+
+	</div>
+
+
+
+
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+
+
+</html>
