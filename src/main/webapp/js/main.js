@@ -23,47 +23,9 @@ app.run(function($rootScope) {
 	}
 	
 });
-app.controller('siteCtrl', function($scope) {
-	var wood = getCookie('WoodValue');
-	if (wood)
-		$scope.resource.WoodValue = parseInt(wood);
 
-	var houseSize = getCookie('houseSize');
-	if (houseSize)
-		$scope.houseStatus.houseSize=parseInthouseSize(houseSize);
-		//var temp =  parseInthouseSize(houseSize);
-		
-	var groundSize = getCookie('groundSize');
-	if (groundSize)
-		$scope.houseStatus.groundSize = parseIntgroundSize(groundSize);
-})
-app.controller('groundController', function($scope) {
-	$scope.woodAdd = function() {
-		if (!$scope.resource.WoodValue) {
-			$scope.resource.WoodValue = 0;
-		}
-		$scope.resource.WoodValue += 10;
-		var exdate=new Date();
-		exdate.setDate(exdate.getDate()+365);
-		document.cookie = "WoodValue=" + $scope.resource.WoodValue+
-		";expires="+exdate.toGMTString();
-	}
-})
-app.controller('houseController', function($scope) {
-	$scope.fire = function() {
-		if ($scope.resource.WoodValue > 0) {
-			$scope.resource.WoodValue -= 1;
-			document.cookie = "WoodValue=" + $scope.resource.WoodValue;
-		}
-		if ($scope.houseStatus.temp == 0) {
-			$scope.houseStatus.temp += 1;
-			$scope.houseStatus.houseSize = "温暖的木屋";
-			$scope.houseStatus.groundSize = "静寂的森林";
-			document.cookie = "houseSize=" + 1;
-			document.cookie = "groundSize=" + 0;
-		}
-	}
-})
+
+
 
 function getCookie(c_name) {
 	if (document.cookie.length > 0) {
