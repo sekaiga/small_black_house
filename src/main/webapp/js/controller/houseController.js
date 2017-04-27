@@ -15,4 +15,7 @@ app.controller('houseController', function($scope) {
 			document.cookie = "groundSize=" + 0;
 		}
 	}
+	$scope.buildHouse = function(){
+		
+	}
 })
