@@ -14,14 +14,18 @@ app.config([ '$routeProvider', function($routerProvider) {
 } ])
 app.run(function($rootScope) {
 	$rootScope.resource = {
-		'WoodValue' : 0
+		'WoodValue' : 0,
+		'peopleCurrentNumber' : 0,
+		'peopleMaxNumber' : 0
 	}
 	$rootScope.houseStatus = {
 		temp : 0,
 		houseSize : "冰冷的木屋",
 		groundSize : "",
 	}
-	
+	$rootScope.event = {
+		showhouse : false
+	}
 });
 
 

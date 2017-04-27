@@ -16,6 +16,16 @@ app.controller('houseController', function($scope) {
 		}
 	}
 	$scope.buildHouse = function(){
-		
+		//获得房子大小 知道这次要多少木头
+		var woodCount = $scope.resource.peopleMaxNumber * 10; 
+		//判断木头是否够
+		if($scope.resource.WoodValue >= woodCount){
+			//造房子减木头
+			$scope.resource.peopleMaxNumber += 5;
+			$scope.resource.WoodValue -= woodCount
+		}else{
+			//TODO add message
+			console.log("no enough wood,need "+woodCount)
+		}
 	}
 })

@@ -17,11 +17,11 @@
 				<tr>
 					<td><input type="button" value="添加木头" ng-click="fire()"></td>
 				</tr>
-				<tr ng-show="resource.WoodValue>40">
+				<tr ng-show="event.showhouse">
 					<td><span>建造/制作</span></td>
 				</tr>
-				<tr ng-show="resource.WoodValue>40">
-					<td><button ng-click='buildHouse()'>木屋</button></td>
+				<tr ng-show="event.showhouse">
+					<td><button ng-click='buildHouse()' >木屋</button></td>
 				</tr>
 		
 
