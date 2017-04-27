@@ -1,1 +1,7 @@
 @CHARSET "UTF-8";
+#left {
+	width: 30%;
+	float: left;
+	left: 0px;
+	position: absolute;
+}

@@ -1,12 +1,6 @@
 @CHARSET "UTF-8";
 
-#left {
-	line-height: 60px;
-	width: 30%;
-	float: left;
-	left: 0px;
-	position: absolute;
-}
+
 
 #middle {
 	line-height: 60px;
