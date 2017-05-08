@@ -40,7 +40,7 @@
 	
 	<div id="left">
 		<table>
-			<tr ng-repeat="line in queue.queue track by $index">
+			<tr ng-repeat="line in queue.queue.slice().reverse() track by $index">
 				<td>{{line}}</td>
 			</tr>
 		</table>
@@ -58,7 +58,11 @@
 
 		<span
 			style="position: relative;  top: -10px ; left: 5px; z-index: 99; background: white">储藏室
-		</span> <br>
+		</span> 
+		<span 
+			style="position: relative;  top: -10px ; left: 5px; z-index: 99; background: white">人口  
+			<div style="display: inline; position: relative ; left: 1px; z-index: 99; background: white" ng-bind="resource.peopleCurrentNumber"></div>/<div style="display: inline; position: relative; left: 1px; z-index: 99; background: white" ng-bind="resource.peopleMaxNumber"></div>
+		</span><br>
 		<div style="position: relative; ">
 			<span>木头:
 				<div ng-bind="resource.WoodValue" style="float: right"></div>

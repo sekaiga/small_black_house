@@ -24,7 +24,8 @@ app.run(function($rootScope) {
 		groundSize : "",
 	}
 	$rootScope.event = {
-		showhouse : false
+		showhouse : false,
+		showHunter : false
 	}
 	$rootScope.queue = Queue();
 });
@@ -54,6 +55,12 @@ function Queue(){
 //////queue
 
 
+function setCookie(c_name,c_value){
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()+365);
+	document.cookie = c_name+"=" + c_value+
+	";expires="+exdate.toGMTString();
+}
 
 
 function getCookie(c_name) {

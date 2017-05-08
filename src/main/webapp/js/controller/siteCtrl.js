@@ -14,9 +14,21 @@ app.controller('siteCtrl', function($scope) {
 	var groundSize = getCookie('groundSize');
 	if (groundSize)
 		$scope.houseStatus.groundSize = parseIntgroundSize(groundSize);
+	
+	var peopleMaxNumber = getCookie("peopleMaxNumber");
+	if (peopleMaxNumber)
+		$scope.resource.peopleMaxNumber = parseInt(peopleMaxNumber);
+	
+	var peopleCurrentNumber = getCookie("peopleCurrentNumber");
+	if (peopleCurrentNumber)
+		$scope.resource.peopleCurrentNumber = parseInt(peopleCurrentNumber);
 
 	$scope.$watch('resource.WoodValue', function(newVal, oldVal) {
 		if (newVal > 40)
 			$scope.event.showhouse = true
+	})
+	$scope.$watch('resource.peopleMaxNumber', function(newVal, oldVal) {
+		if (newVal >= 10)
+			$scope.event.showHunter = true
 	})
 })
