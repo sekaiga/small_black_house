@@ -1,28 +1,9 @@
 /**
  * 
  */
-app.controller('siteCtrl', function($scope) {
-	var wood = getCookie('WoodValue');
-	if (wood)
-		$scope.resource.WoodValue = parseInt(wood);
-
-	var houseSize = getCookie('houseSize');
-	if (houseSize)
-		$scope.houseStatus.houseSize = parseInthouseSize(houseSize);
-	// var temp = parseInthouseSize(houseSize);
-
-	var groundSize = getCookie('groundSize');
-	if (groundSize)
-		$scope.houseStatus.groundSize = parseIntgroundSize(groundSize);
+app.controller('siteCtrl', function($scope,cookieService) {
+	cookieService.getAllCookie();
 	
-	var peopleMaxNumber = getCookie("peopleMaxNumber");
-	if (peopleMaxNumber)
-		$scope.resource.peopleMaxNumber = parseInt(peopleMaxNumber);
-	
-	var peopleCurrentNumber = getCookie("peopleCurrentNumber");
-	if (peopleCurrentNumber)
-		$scope.resource.peopleCurrentNumber = parseInt(peopleCurrentNumber);
-
 	$scope.$watch('resource.WoodValue', function(newVal, oldVal) {
 		if (newVal > 40)
 			$scope.event.showhouse = true
@@ -31,4 +12,31 @@ app.controller('siteCtrl', function($scope) {
 		if (newVal >= 10)
 			$scope.event.showHunter = true
 	})
+	
+	
 })
+
+
+app.service('cookieService',function($rootScope){
+	this.setAllCookie = function(){
+		var resource = $rootScope.resource;
+		var houseStatus = $rootScope.houseStatus;
+		var event = $rootScope.event;
+		var cookie = {resource:resource,houseStatus:houseStatus,event:event};
+		
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate()+365);
+		
+		document.cookie = "cookie = "+JSON.stringify(cookie)+";expires="+exdate.toGMTString();
+	}
+	
+	this.getAllCookie = function(){
+		console.log(document.cookie);	
+		eval ("var " + document.cookie);
+		console.log(cookie)
+		$rootScope.resource = cookie.resource;
+		$rootScope.houseStatus = cookie.houseStatus;
+		$rootScope.event = cookie.event;
+	}
+})
+
