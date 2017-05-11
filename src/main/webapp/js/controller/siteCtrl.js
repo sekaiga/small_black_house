@@ -32,6 +32,8 @@ app.service('cookieService',function($rootScope){
 	
 	this.getAllCookie = function(){
 		console.log(document.cookie);	
+		if(document.cookie.length==0)
+			return;
 		eval ("var " + document.cookie);
 		console.log(cookie)
 		$rootScope.resource = cookie.resource;
